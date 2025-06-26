@@ -7,18 +7,111 @@
   body {
     font-family: 'Segoe UI', sans-serif;
     background-color: #0d0d0d;
-    color: #f5f5f5;
+    /* color: #f5f5f5; */
     overflow-x: hidden;
   }
   
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 1.5rem 3rem;
-    align-items: center;
-    background-color: #111;
-    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.2);
+/* Base styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: #111;
+  color: #fff;
+  position: relative;
+}
+
+/* Logo and Button */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  background-color: gold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #111;
+  font-weight: bold;
+}
+
+/* Hide sidebar on desktop */
+.sidebar {
+  display: flex;
+}
+
+.sidebar ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Hamburger (mobile only) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  width: 2rem;
+  height: 2rem;
+  gap: 5px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.hamburger span {
+  width: 55px;
+  height: 50px;
+  /* background-color: white; */
+  border-radius: 2px;
+}
+
+/* Responsive (Mobile) */
+@media (max-width: 768px) {
+  .hamburger {
+    display: inline;
   }
+
+  .sidebar {
+    position: fixed;
+    top: 6rem;
+    left: -250px;
+    height: 100vh;
+    width: 250px;
+    background-color: #111;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: flex-start;
+    padding: 2rem;
+    transition: left 0.3s ease;
+    z-index: 998;
+  }
+
+  .sidebar ul {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  /* Hide Shop Button or move it */
+  .btn {
+    display: none;
+  }
+}
+
   
   .logo {
     font-size: 2rem;
@@ -59,6 +152,7 @@
   
   .hero {
     position: relative;
+      background-color: #111;
     height: 100vh;
     display: flex;
     align-items: center;
